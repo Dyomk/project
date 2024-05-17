@@ -1,0 +1,697 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Form</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+.form {
+  background-color: #ffffff;
+  margin: 100px auto;
+  width: 70%;
+  min-width: 300px;
+	height:auto;
+}
+
+.tablink {
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+  
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+.tabcontent {
+  display: none;
+}
+
+.hide{
+  display:none;
+}
+.left{
+  float: left;
+  width: 30%;
+  padding: 30px;
+  height: 500px;
+  background-color:#1460D5; 
+  background-image: linear-gradient(#1460D5,#6D9FFC);
+  color:#ffffff;
+  text-align:center;
+}
+	
+.main{
+  float: left;
+  width: 70%;
+  padding: 30px;
+  height: 500px;
+  background:#ffffff;
+}
+	
+.main h1{
+  color:#1460D5;
+}
+
+.main2{  float: left;
+  width: 100%;
+  padding: 30px;
+  height: 500px;
+  background:#ffffff;
+}
+	
+.main2 h1{
+  color:#1460D5;
+}
+	
+.main3{
+  float: left;
+  width: 100%;
+  padding: 30px;
+  background:#ffffff;
+}
+	
+.main3 h1{
+  color:#1460D5;
+
+}
+	
+.img{
+  width:70%;
+  bottom: -80px;
+  position: relative;
+}
+	
+.hr {width:40%;}
+.btn-blue{
+  color:#ffffff;
+  background-color: #1460D5;
+}
+	
+.btn-outline{
+  color:#1460D5;
+  border:1px solid #1460D5;
+  background:#ffffff;
+  margin-left:10px;
+}
+
+.btn-outline:hover{
+  color:#ffffff;
+}
+	
+.back{
+  display:contents;
+}
+	
+.btn-help{
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  font-size: 14px;
+  color:#ffffff;
+  background-color:#E6882C;
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.help1{
+  position: relative;
+  height:330px;
+}
+
+.help2{
+  position: relative;
+  height:72px;
+}
+	
+input {
+  padding: 10px 10px;
+  margin: 5px 0px 5px 0px;
+}
+	
+.login{
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  font-size: 14px;
+  color:#ffffff;
+  background-color: #1460D5;
+}
+	
+.bl{
+  display:flow-root;
+}
+
+.bl2{
+  display:flex;
+  align-items: center;
+ }
+
+a {
+  color: #1460D5;
+  text-decoration: none;
+}
+
+.uline{
+  text-decoration: underline 2px #1460D5;
+}
+
+.btn-round{
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #1460D5;
+  border-radius: 25px;
+  padding: 10px 25px;
+  margin-left: 10px;
+}
+
+.btn-round-outline{
+  float: left;
+  border: 1px solid #1460D5;
+  outline: none;
+  cursor: pointer;
+  color: #1460D5;
+  background-color: #ffffff;
+  border-radius: 25px;
+  padding: 9px 24px;
+  margin-left: 10px;
+}
+	
+input[type=search] {
+  width: 30%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  background-image: url(search.png);
+  background-position: 6px 6px;
+  background-repeat: no-repeat;
+  padding: 8px 20px 8px 40px;
+}
+
+.fs{
+  margin:-30px;
+  margin-top:20px;
+  margin-bottom: 30px;
+}
+
+table {border: none;}
+.table-cap{
+  color:#ffffff;
+  text-align: left;
+}
+th {
+  padding: 15px;
+}
+
+td {
+  padding: 20px;
+  border-bottom: 10pt solid #C8C8C8;
+}
+
+.sep{
+  padding:4px !important;
+}
+	//
+	
+	
+	.container {
+  overflow: hidden;
+}
+
+.filterDiv {
+
+  display: none; /* Hidden by default */
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: inherit;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Add a light grey background on mouse-over */
+.btn:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background to the active button */
+.btn.active {
+  background-color: #1460D5;
+  color: white;
+}
+	
+		
+
+	
+	
+	
+</style>
+</head>
+<body>
+	<div class="form">
+	<div id="step1" class="tabcontent">
+		<div class="left">
+			<h1>Esi sveicināts<br>ĶLUS</h1>
+			<hr class="hr">
+			<p>Tavas laboratorijas uzskaites sistēma</p>
+			<img class="img" src="left.png">
+		</div>
+		<div class="main">
+		<h1>Ko tu šodien vēlies darīt?</h1>
+			<p>Piekļūsti savas skolas laboratorijai vai aplūku publiski pieejamo informāciju un datus par laboratoriju</p>
+		<button class="tablink hide" onclick="openPage('step1')" id="defaultOpen" ></button>
+		<button class="tablink btn-blue" onclick="openPage('step2')">Pieslēgties</button>
+		<button class="tablink btn-outline" onclick="openPage('step3')">Piekļūt publiskiem dātiem</button>		
+		<div class="help1">
+			<button class="btn-help">Ziņot par kļūdu</button>	
+		</div>		
+		</div>
+	</div>
+		
+		
+		<div id="step2" class="tabcontent">
+		<div class="left">
+			<h1>Esi sveicināts<br>ĶLUS</h1>
+			<hr class="hr">
+			<p>Tavas laboratorijas uzskaites sistēma</p>
+			<img class="img" src="left.png">
+		</div>
+		<div class="main">
+			<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M426.65984 170.65984q17.67424 0 30.16704 12.4928t12.4928 30.16704q0 18.00192-12.67712 30.33088l-225.66912 225.66912 665.00608 0q17.67424 0 30.16704 12.4928t12.4928 30.16704-12.4928 30.16704-30.16704 12.4928l-665.00608 0 225.66912 225.66912q12.67712 12.32896 12.67712 30.33088 0 17.67424-12.4928 30.16704t-30.16704 12.4928q-18.00192 0-30.33088-12.32896l-298.65984-298.65984q-12.32896-13.0048-12.32896-30.33088t12.32896-30.33088l298.65984-298.65984q12.67712-12.32896 30.33088-12.32896z"  /></svg>
+			<button class="tablink back" onclick="openPage('step1', this, 'green')">Atpakaļ uz sākumlapu</button>
+		<h1>Pieslēgties</h1>
+			<h3>Ķīmijas laboratorijas uzskaites sistēmai</h3>
+			<br>
+			<div class="bl">
+			<form action="#">
+  <label>Lietotājvārds</label><br>
+  <input type="text" placeholder="Ievadīt lietotājvārdu"><br>
+  <label>Parole</label><br>
+  <input type="password" placeholder="Ievadīt parole"><br>
+  <input class="login" type="submit" value="Pieslēgties">
+</form>
+</div>
+			<div class="bl">
+			<hr>
+			<span>Neesi vēl reģistrēts?</span> <a href="#">Izveidot profilu</a>
+		    </div>
+			<div class="help2">
+			<button class="btn-help">Ziņot par kļūdu</button>	
+		</div>		
+		</div>
+	</div>
+		
+		
+		<div id="step3" class="tabcontent">
+		<div class="main3">
+<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M426.65984 170.65984q17.67424 0 30.16704 12.4928t12.4928 30.16704q0 18.00192-12.67712 30.33088l-225.66912 225.66912 665.00608 0q17.67424 0 30.16704 12.4928t12.4928 30.16704-12.4928 30.16704-30.16704 12.4928l-665.00608 0 225.66912 225.66912q12.67712 12.32896 12.67712 30.33088 0 17.67424-12.4928 30.16704t-30.16704 12.4928q-18.00192 0-30.33088-12.32896l-298.65984-298.65984q-12.32896-13.0048-12.32896-30.33088t12.32896-30.33088l298.65984-298.65984q12.67712-12.32896 30.33088-12.32896z"  /></svg>
+			<button class="tablink back" onclick="openPage('step1', this, 'green')">Atpakaļ uz sākumlapu</button>
+		<h1>Publiskā datubāze</h1>
+			<h3 class="uline">Šajā datubāzē Tu vari apskatīt pieejamās  vielas un aprījokumu</h3>
+			<br>
+			<div class="bl2">
+  <input type="search" placeholder="Search"> <button class="btn-round btn active" onclick="filterSelection('all')">Rādīt visu</button> <button class="btn-round-outline" onclick="filterSelection('vielas')">Radīt vielas</button> <button class="btn-round-outline" onclick="filterSelection('aprikojums')">Rādīt aprīkojumu</button>
+  
+</div>
+			
+<hr class="fs">
+			
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr bgcolor="#0B082B" class="filterDiv aprikojums vielas table-cap">
+    <th style="text-align:center;width:10%;">ID</th>
+    <th style="width:10%;">Nosaukums</th>
+	  <th style="width:10%;">Tips</th>
+    <th style="width:10%;">Apakštips</th>
+	  <th style="width:10%;">Skaits</th>
+	  <th style="width:10%;">Svars</th>
+	  <th style="width:20%;">Komentāri</th>
+	  <th style="width:20%;" ></th>
+</tr>
+<tr class="filterDiv aprikojums border-btm">
+    <td style="text-align:center;width:10%;">KL1042724</td>
+    <td style="width:10%;">Katalīzators</td>
+    <td style="width:10%;">Aprīkojums</td>
+	  <td style="width:10%;">Trauks</td>
+	  <td style="width:10%;">23</td>
+	  <td style="width:10%;"></td>
+	  <td style="width:20%;">Daži komentāri</td>
+	  <td style="width:20%;"></td>
+</tr>	
+<tr class="filterDiv aprikojums">
+    <td style="text-align:center;width:10%;">KL1042723</td>
+    <td>Birete</td>
+    <td>Aprīkojums</td>
+	  <td>Trauks</td>
+	  <td>23</td>
+	  <td></td>
+	  <td>Daži komentāri</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;">KL1042742</td>
+    <td>HCl</td>
+    <td>Viela</td>
+	  <td>Skābe</td>
+	  <td>19</td>
+	  <td>40</td>
+	  <td>Daži komentāri</td>
+	  <td></td>
+</tr>		
+<tr class="filterDiv aprikojums">
+    <td style="text-align:center;">KL1042724</td>
+    <td>Kolba</td>
+    <td>Aprīkojums</td>
+	  <td>Trauks</td>
+	  <td>20</td>
+	  <td></td>
+	  <td>Daži komentāri</td>
+	  <td></td>
+</tr>			
+<tr class="filterDiv vielas">
+    <td style="text-align:center;">KL1042734</td>
+    <td>Fe</td>
+    <td>Viela</td>
+	  <td>Metāls</td>
+	  <td>48</td>
+	  <td>10</td>
+	  <td>Daži komentāri</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;">KL1042721</td>
+    <td>Na</td>
+    <td>Viela</td>
+	  <td>Metāls</td>
+	  <td>20</td>
+	  <td>20</td>
+	  <td>Daži komentāri</td>
+	  <td></td>
+</tr>			
+<tr class="filterDiv aprikojums">
+    <td style="text-align:center;width:10%;">1</td>
+    <td>Mehāniskie svari QWS</td>
+    <td>Svari</td>
+	  <td>Mehāniskie svari</td>
+	  <td>5</td>
+	  <td></td>
+	  <td> </td>
+	  <td></td>
+</tr>		
+<tr class="filterDiv aprikojums">
+    <td style="text-align:center;width:10%;">2</td>
+    <td>Elektroniskie svari ES-25</td>
+    <td>Svari</td>
+	  <td>Elektroniskie svari</td>
+	  <td>15</td>
+	  <td></td>
+	  <td>Darbojas uz 3 AAA tipa baterijām</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv aprikojums">
+    <td style="text-align:center;width:10%;">3</td>
+    <td>Elektriskā plītīņa</td>
+    <td>Sildītājs</td>
+	  <td>Plītiņa</td>
+	  <td>8</td>
+	  <td></td>
+	  <td>Strāvas vada garums 1m</td>
+	  <td></td>
+</tr>				
+<tr class="filterDiv aprikojums">
+    <td style="text-align:center;width:10%;">4</td>
+    <td>Milzīgās kolbas</td>
+    <td>Trauks</td>
+	  <td>Trauki</td>
+	  <td>100</td>
+	  <td></td>
+	  <td>Kolbas īpaši lielām vielām</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv aprikojums">
+    <td style="text-align:center;width:10%;">5</td>
+    <td>Stikla mēģene</td>
+    <td>Trauks</td>
+	  <td>Stikls</td>
+	  <td>12</td>
+	  <td></td>
+	  <td>Viegli plīstoša</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">2</td>
+    <td>Kalcija karbonāts CaCO3</td>
+    <td>Reaģents</td>
+	  <td>Sāls</td>
+	  <td>25</td>
+	  <td>100 g</td>
+	  <td></td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">3</td>
+    <td>NaOH šķīdums 10%</td>
+    <td>Reaģents</td>
+	  <td>Hidroksīds</td>
+	  <td>45</td>
+	  <td>50 ml</td>
+	  <td>Šķīdums izvedots un sapildīts 2020.09.23</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">4</td>
+    <td>Sālsskābes HCl šķīdums 20%</td>
+    <td>Reaģents</td>
+	  <td>Skābe</td>
+	  <td>24</td>
+	  <td>100 ml</td>
+	  <td>Šķīdums izvedots un sapildīts 2020.10.21</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">5</td>
+    <td>NaOH šķīdums 10%</td>
+    <td>Reaģents</td>
+	  <td>test1</td>
+	  <td>45</td>
+	  <td>50 ml</td>
+	  <td>Šķīdums izvedots un sapildīts 2020.09.23</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">6</td>
+    <td>NaOH šķīdums 20%</td>
+    <td>Reaģents</td>
+	  <td>Hidroksīds</td>
+	  <td>413</td>
+	  <td>100 ml</td>
+	  <td>Šķīdums izvedots un sapildīts 2020.10.21</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">7</td>
+    <td>NaOH šķīdums 10%</td>
+    <td>Reaģents</td>
+	  <td>test2</td>
+	  <td>45</td>
+	  <td>50 ml</td>
+	  <td>Šķīdums izvedots un sapildīts lorem ipsum</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">8</td>
+    <td>Nosaukums lorem ipsum</td>
+    <td>Reaģents</td>
+	  <td>test2</td>
+	  <td>40</td>
+	  <td>5 ml</td>
+	  <td>Šķīdums izvedots un sapildīts lorem ipsum</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">9</td>
+    <td>Nosaukums lorem ipsum</td>
+    <td>Reaģents</td>
+	  <td>test2</td>
+	  <td>4</td>
+	  <td>5 ml</td>
+	  <td>Šķīdums izvedots un sapildīts lorem ipsum</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">10</td>
+    <td>Nosaukums lorem ipsum</td>
+    <td>Reaģents</td>
+	  <td>test2</td>
+	  <td>4</td>
+	  <td>5 ml</td>
+	  <td>Šķīdums izvedots un sapildīts lorem ipsum</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">11</td>
+    <td>Nosaukums lorem ipsum</td>
+    <td>Reaģents</td>
+	  <td>test2</td>
+	  <td>4</td>
+	  <td>5 ml</td>
+	  <td>Šķīdums izvedots un sapildīts lorem ipsum</td>
+	  <td></td>
+</tr>			
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">12</td>
+    <td>Nosaukums lorem ipsum</td>
+    <td>Reaģents</td>
+	  <td>test2</td>
+	  <td>4</td>
+	  <td>5 ml</td>
+	  <td>Šķīdums izvedots un sapildīts lorem ipsum</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">13</td>
+    <td>Nosaukums lorem ipsum</td>
+    <td>Reaģents</td>
+	  <td>test2</td>
+	  <td>4</td>
+	  <td>5 ml</td>
+	  <td>Šķīdums izvedots un sapildīts lorem ipsum</td>
+	  <td></td>
+</tr>	
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">14</td>
+    <td>Nosaukums lorem ipsum</td>
+    <td>Reaģents</td>
+	  <td>test2</td>
+	  <td>4</td>
+	  <td>5 ml</td>
+	  <td>Šķīdums izvedots un sapildīts lorem ipsum</td>
+	  <td></td>
+</tr>				
+<tr class="filterDiv vielas">
+    <td style="text-align:center;width:10%;">15</td>
+    <td>Nosaukums lorem ipsum</td>
+    <td>Reaģents</td>
+	  <td>test2</td>
+	  <td>4</td>
+	  <td>5 ml</td>
+	  <td>Šķīdums izvedots un sapildīts lorem ipsum</td>
+	  <td></td>
+</tr>					
+</table>
+			
+			
+			
+		
+
+			<div class="help2">
+			<button class="btn-help">Ziņot par kļūdu</button>	
+		</div>	
+		</div>
+	</div>
+		
+	</div>
+	
+	
+
+	<script>
+	function openPage(pageName, elmnt, color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+
+  document.getElementById(pageName).style.display = "block";
+}
+document.getElementById("defaultOpen").click();
+		
+		
+		filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+// Show filtered elements
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current control button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+		
+		
+		
+		
+		
+	</script>
+</body>
+</html>
